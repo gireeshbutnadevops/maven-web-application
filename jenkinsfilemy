@@ -1,4 +1,4 @@
-node{  
+node(nodes){  
     properties([buildDiscarder(logRotator(artifactDaysToKeepStr: '', artifactNumToKeepStr: '5', daysToKeepStr: '', numToKeepStr: '5')), [$class: 'JobLocalConfiguration', changeReasonComment: ''],
     pipelineTriggers([pollSCM('* * * * *')])])
    
@@ -14,6 +14,7 @@ node{
  sh "${mavenHome}/bin/mvn clean package"
   }
   
+  /*
   stage('ExecuteSonarQubeReport'){
   sh "${mavenHome}/bin/mvn sonar:sonar"
   }
@@ -28,4 +29,5 @@ node{
   
   }
   
+  */
   }
